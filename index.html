@@ -1,0 +1,600 @@
+<!DOC    <meta name="description" content="CivicSahayak - A platform for citizens to report and track civic issues in their community">
+    <title>CivicSahayak - Community Issue Reporting Platform</title>
+    <!-- Meta Tags -->
+    <meta name="theme-color" content="#1E93AB">
+    <meta property="og:title" content="CivicSahayak - Community Issue Reporting Platform">html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CivicSetu - A platform for citizens to report and track civic issues in their community">
+    <title>CivicSahayak - Community Issue Reporting Platform</title>
+    <!-- Meta Tags -->
+    <meta name="theme-color" content="#1E93AB">
+    <meta property="og:title" content="CivicSetu - Community Issue Reporting Platform">
+    <meta property="og:description" content="Report and track civic issues in your community">
+    <meta property="og:image" content="assets/og-image.jpg">
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Core Stylesheets -->
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/enhanced-components.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/nav-animations.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/modernComponents.css">
+    <link rel="stylesheet" href="css/report-options.css">
+    <link rel="stylesheet" href="css/report-sections.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/enhanced-container.css">
+    <link rel="stylesheet" href="css/hero-enhanced.css">
+    <link rel="stylesheet" href="css/report-form.css">
+    <link rel="stylesheet" href="css/user-menu.css">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#2196F3">
+    
+    <!-- Third Party Libraries -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <!-- PWA Support -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/icon-192x192.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="assets/logo.svg" alt="CivicSahayak Logo" class="nav-logo">
+                <h1>CivicSahayak</h1>
+            </div>
+            
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="#reports" class="nav-link">Reports</a>
+                <a href="#map-section" class="nav-link">Issue Map</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <button type="button" class="nav-button report-btn" data-action="report">
+                    <i class="fas fa-plus"></i> Report Issue
+                </button>
+                <div class="user-menu">
+                    <img src="assets/avatar-placeholder.png" alt="User" class="user-avatar">
+                    <div class="user-dropdown">
+                        <a href="my-reports.html" class="dropdown-item">
+                            <img src="assets/my-reports-icon.svg" alt="" class="dropdown-icon"> My Reports
+                        </a>
+                        <a href="profile.html" class="dropdown-item">
+                            <img src="assets/profile-icon.svg" alt="" class="dropdown-icon"> Profile
+                        </a>
+                        <a href="admin.html" class="dropdown-item">
+                            <img src="assets/admin-icon.svg" alt="" class="dropdown-icon"> Admin Dashboard
+                        </a>
+                        <hr class="dropdown-divider">
+                        <a href="#" class="dropdown-item text-danger">
+                            <img src="assets/logout-icon.svg" alt="" class="dropdown-icon"> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="floating-shapes">
+            <i class="fas fa-city shape shape-1"></i>
+            <i class="fas fa-tree shape shape-2"></i>
+            <i class="fas fa-home shape shape-3"></i>
+            <i class="fas fa-landmark shape shape-4"></i>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Empowering Communities Through Civic Engagement</h1>
+                <p>Report local issues, track their resolution, and help create a better living environment for everyone.</p>
+                <div class="hero-buttons">
+                    <button type="button" class="hero-button btn-primary report-btn" data-action="report">
+                        <i class="fas fa-plus-circle"></i> Report an Issue
+                    </button>
+                    <a href="#how-it-works" class="hero-button btn-outline-light">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </a>
+                    
+                </div>
+            </div>
+            <div class="hero-stats-container">
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Total Reports</h3>
+                            <div class="stat-value" id="totalReports">22</div>
+                            <div class="stat-label">Issues Reported</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Resolved Issues</h3>
+                            <div class="stat-value" id="resolvedCount">18</div>
+                            <div class="stat-label">Successfully Fixed</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Active Citizens</h3>
+                            <div class="stat-value" id="userCount">15</div>
+                            <div class="stat-label">Making a Difference</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Feature Cards Section -->
+    <section class="container">
+        <div class="feature-cards">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h3 class="feature-title">Quick Reporting</h3>
+                <p class="feature-description">Report civic issues in your area with just a few taps. Add photos, location, and details easily.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <h3 class="feature-title">Live Issue Tracking</h3>
+                <p class="feature-description">Track reported issues in real-time on our interactive map. Stay updated on resolution progress.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <h3 class="feature-title">Community Impact</h3>
+                <p class="feature-description">Join fellow citizens in making your community better. Every report contributes to positive change.</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <!-- Live Issue Map Section -->
+        <section class="container" id="map-section">
+            <div class="live-map-section">
+                <div class="live-map-header">
+                    <h2 class="map-title">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Live Issue Map
+                    </h2>
+                    <div class="map-filters">
+                        <button class="map-filter active" data-filter="all">
+                            <i class="fas fa-globe"></i>
+                            All Issues
+                        </button>
+                        <button class="map-filter" data-filter="pending">
+                            <i class="fas fa-clock"></i>
+                            Pending
+                        </button>
+                        <button class="map-filter" data-filter="resolved">
+                            <i class="fas fa-check-circle"></i>
+                            Resolved
+                        </button>
+                        <button class="map-filter" data-filter="urgent">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Urgent
+                        </button>
+                    </div>
+                </div>
+
+                <div class="live-map-container" id="map"></div>
+
+                <div class="map-legend">
+                    <div class="legend-item">
+                        <span class="legend-dot pending"></span>
+                        Pending Issues
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot resolved"></span>
+                        Resolved Issues
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot urgent"></span>
+                        Urgent Issues
+                    </div>
+                </div>
+
+                <div class="live-updates">
+                    <div class="live-updates-header">
+                        <i class="fas fa-bell"></i>
+                        Live Updates
+                    </div>
+                    <div class="live-updates-list" id="liveUpdates">
+                        <!-- Live updates will be populated dynamically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Report Form Modal -->
+        <div id="reportModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Submit a Report</h2>
+                </div>
+                <div class="modal-body">
+                    <form id="reportForm" class="report-form">
+                        <div class="report-options-section">
+                            <h3>What would you like to do?</h3>
+                            <div class="options-grid">
+                                <button type="button" class="option-button" data-action="report-issue">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    <span>Report Issue</span>
+                                </button>
+                                <button type="button" class="option-button" data-action="suggest-improvement">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>Suggest Improvement</span>
+                                </button>
+                                <button type="button" class="option-button" data-action="give-feedback">
+                                    <i class="fas fa-comments"></i>
+                                    <span>Give Feedback</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="suggestion-section" id="suggestionSection">
+                            <h3>Share Your Improvement Suggestion</h3>
+                            <div class="input-group">
+                                <label for="suggestionTitle">Title of your suggestion</label>
+                                <input type="text" id="suggestionTitle" name="suggestionTitle" placeholder="Brief title for your suggestion">
+                            </div>
+                            <div class="input-group">
+                                <label>Area of Improvement</label>
+                                <div class="suggestion-tags">
+                                    <button type="button" class="tag-button" data-tag="infrastructure">Infrastructure</button>
+                                    <button type="button" class="tag-button" data-tag="services">Public Services</button>
+                                    <button type="button" class="tag-button" data-tag="environment">Environment</button>
+                                    <button type="button" class="tag-button" data-tag="safety">Safety</button>
+                                    <button type="button" class="tag-button" data-tag="community">Community</button>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="suggestionDetails">Describe your suggestion in detail</label>
+                                <textarea id="suggestionDetails" name="suggestionDetails" placeholder="What would you like to improve? How will it benefit the community?"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="feedback-section" id="feedbackSection">
+                            <h3>Share Your Feedback</h3>
+                            <div class="input-group">
+                                <label for="feedbackType">Type of Feedback</label>
+                                <div class="suggestion-tags">
+                                    <button type="button" class="tag-button" data-tag="appreciation">Appreciation</button>
+                                    <button type="button" class="tag-button" data-tag="concern">Concern</button>
+                                    <button type="button" class="tag-button" data-tag="question">Question</button>
+                                    <button type="button" class="tag-button" data-tag="other">Other</button>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="feedbackDetails">Your Feedback</label>
+                                <textarea id="feedbackDetails" name="feedbackDetails" placeholder="Share your thoughts, experiences, or questions with us"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="issue-categories-section" id="issueCategoriesSection">
+                            <h3>What type of issue would you like to report?</h3>
+                            <div class="categories-grid">
+                                <button type="button" class="category-button" data-category="roads">
+                                    <i class="fas fa-road"></i>
+                                    <span>Roads & Potholes</span>
+                                </button>
+                                <button type="button" class="category-button" data-category="streetlights">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>Street Lights</span>
+                                </button>
+                                <button type="button" class="category-button" data-category="garbage">
+                                    <i class="fas fa-trash-alt"></i>
+                                    <span>Garbage & Sanitation</span>
+                                </button>
+                                <button type="button" class="category-button" data-category="electricity">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>Electricity</span>
+                                </button>
+                                <button type="button" class="category-button" data-category="water">
+                                    <i class="fas fa-tint"></i>
+                                    <span>Water Supply</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="urgency-level-section">
+                            <h3>How urgent is this?</h3>
+                            <div class="urgency-grid">
+                                <button type="button" class="urgency-button low" data-urgency="low">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Low Priority</span>
+                                </button>
+                                <button type="button" class="urgency-button medium" data-urgency="medium">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    <span>Medium Priority</span>
+                                </button>
+                                <button type="button" class="urgency-button high" data-urgency="high">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>High Priority</span>
+                                </button>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label>Photo Evidence</label>
+                            <div class="media-capture">
+                                <button type="button" class="btn btn-outline" id="capturePhoto">
+                                    <i class="fas fa-camera"></i> Take Photo
+                                </button>
+                                <input type="file" id="photo" accept="image/*" capture="environment" hidden>
+                                <div id="imagePreview" class="media-preview"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Voice Note (Optional)</label>
+                            <div class="media-capture">
+                                <button type="button" id="recordVoice" class="btn btn-outline">
+                                    <i class="fas fa-microphone"></i> Record Voice
+                                </button>
+                                <div id="voicePreview" class="media-preview"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Location</label>
+                            <div class="location-capture">
+                                <button type="button" id="locationBtn" class="btn btn-outline">
+                                    <i class="fas fa-map-marker-alt"></i> Capture Location
+                                </button>
+                                <p id="locationDisplay" class="location-display"></p>
+                                <div id="locationPreview" class="location-preview"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Submit Report</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="section section-light">
+            <div class="container">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Four simple steps to report and track civic issues in your area</p>
+                
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3>Document</h3>
+                        <p>Take photos or record a voice note describing the civic issue you've encountered</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Locate</h3>
+                        <p>Share the location automatically or mark it precisely on the map</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon">
+                            <i class="fas fa-paper-plane"></i>
+                        </div>
+                        <h3>Submit</h3>
+                        <p>Provide additional details and submit your report to relevant authorities</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Track</h3>
+                        <p>Monitor the progress and get notifications as your report is addressed</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Recent Reports Section -->
+        <section id="reports" class="section section-light">
+            <div class="container">
+                <h2 class="section-title">Recent Reports</h2>
+                <p class="section-subtitle">Latest issues reported by community members</p>
+
+                <div class="reports-header">
+                    <div class="reports-filters">
+                        <select id="categoryFilter" class="filter-select">
+                            <option value="">All Categories</option>
+                            <option value="roads">Roads & Potholes</option>
+                            <option value="streetlights">Street Lights</option>
+                            <option value="garbage">Garbage & Sanitation</option>
+                            <option value="water">Water Supply</option>
+                            <option value="other">Other Issues</option>
+                        </select>
+                        <select id="statusFilter" class="filter-select">
+                            <option value="">All Statuses</option>
+                            <option value="pending">Pending</option>
+                            <option value="inprogress">In Progress</option>
+                            <option value="resolved">Resolved</option>
+                        </select>
+                        <input type="date" id="dateFilter" class="filter-select">
+                    </div>
+                    <div class="view-toggle">
+                        <button class="btn btn-outline active" data-view="grid">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="btn btn-outline" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="reportsList" class="reports-grid"></div>
+                
+                <div class="reports-footer">
+                    <button id="loadMore" class="btn btn-outline-primary">
+                        Load More Reports
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="section section-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Make Your Voice Heard</h2>
+                    <p>Join thousands of citizens making a difference in their communities</p>
+                    <button type="button" class="btn btn-primary btn-lg report-btn" data-action="report">
+                        <i class="fas fa-plus-circle"></i> Report an Issue Now
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/logo.svg" alt="CivicSetu Logo" class="footer-logo">
+                    <h3>CivicSahayak</h3>
+                    <p>Empowering citizens to improve their communities through effective civic engagement.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-link" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#reports">Recent Reports</a></li>
+                        <li><a href="#map-section">Issue Map</a></li>
+                        <li><a href="success-stories.html">Success Stories</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="feedback.html">Give Feedback</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="guidelines.html">Community Guidelines</a></li>
+                        <li><a href="accessibility.html">Accessibility</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h4>Stay Connected</h4>
+                    <p>Get updates on civic improvements in your area</p>
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" placeholder="Enter your email" required>
+                            <button type="submit" class="btn btn-primary">
+                                Subscribe
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 CivicSahayak. All rights reserved.</p>
+                <p>Built by Team Sahayak for better communities</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/report-form.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- Initialize Media Recorder Polyfill for better browser support -->
+    <script>
+        // Check if MediaRecorder is supported
+        if (!window.MediaRecorder) {
+            console.log('MediaRecorder is not supported. Loading polyfill...');
+            const script = document.createElement('script');
+            script.src = 'https://unpkg.com/audio-recorder-polyfill/dist/index.js';
+            document.head.appendChild(script);
+            window.MediaRecorder = require('audio-recorder-polyfill');
+        }
+    </script>
+</body>
+</html>

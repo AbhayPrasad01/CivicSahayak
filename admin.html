@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CivicSahayak Admin - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/admin-enhanced.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+</head>
+<body class="admin-body">
+    <nav class="admin-nav">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>CivicSahayak Admin</h1>
+            </div>
+            <div class="nav-menu">
+                <a href="#" class="active">Dashboard</a>
+                <a href="#reports">Reports</a>
+                <a href="#analytics">Analytics</a>
+                <a href="#departments">Departments</a>
+                <a href="#settings">Settings</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="admin-main">
+        <div class="container">
+            <!-- Stats Overview -->
+            <div class="stats-grid">
+                <div class="stat-card total-reports">
+                    <div class="stat-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>Total Reports</h3>
+                    <div class="stat-value" id="totalReports">0</div>
+                    <div class="stat-trend positive">
+                        <i class="fas fa-arrow-up"></i>
+                        +12% this week
+                    </div>
+                </div>
+                <div class="stat-card pending">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Pending</h3>
+                    <div class="stat-value" id="pendingReports">0</div>
+                    <div class="stat-trend">
+                        <i class="fas fa-exclamation-circle"></i>
+                        23 need attention
+                    </div>
+                </div>
+                <div class="stat-card in-progress">
+                    <div class="stat-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>In Progress</h3>
+                    <div class="stat-value" id="inProgressReports">0</div>
+                    <div class="stat-trend">
+                        <i class="fas fa-sync-alt"></i>
+                        15 updates today
+                    </div>
+                </div>
+                <div class="stat-card resolved">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Resolved</h3>
+                    <div class="stat-value" id="resolvedReports">0</div>
+                    <div class="stat-trend positive">
+                        <i class="fas fa-chart-line"></i>
+                        89% resolution rate
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Grid -->
+            <div class="admin-grid">
+                <!-- Reports Management -->
+                <section class="admin-section reports-management">
+                    <h2>Recent Reports</h2>
+                    <div class="filters">
+                        <select id="categoryFilter">
+                            <option value="">All Categories</option>
+                            <option value="roads">Roads & Potholes</option>
+                            <option value="streetlights">Street Lights</option>
+                            <option value="garbage">Garbage & Sanitation</option>
+                            <option value="water">Water Supply</option>
+                            <option value="other">Other Issues</option>
+                        </select>
+                        <select id="statusFilter">
+                            <option value="">All Statuses</option>
+                            <option value="pending">Pending</option>
+                            <option value="inprogress">In Progress</option>
+                            <option value="resolved">Resolved</option>
+                        </select>
+                        <select id="priorityFilter">
+                            <option value="">All Priorities</option>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                        <input type="date" id="dateFilter" />
+                    </div>
+                    <div class="reports-table-container">
+                        <table class="reports-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Category</th>
+                                    <th>Description</th>
+                                    <th>Location</th>
+                                    <th>Status</th>
+                                    <th>Priority</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="reportsTableBody"></tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Map & Analytics -->
+                <section class="admin-section map-analytics">
+                    <h2>Issue Distribution Map</h2>
+                    <div id="adminMap" class="admin-map"></div>
+                    <div class="analytics-charts">
+                        <div class="chart-container">
+                            <canvas id="categoryChart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="statusChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Department Performance -->
+            <section class="admin-section department-performance">
+                <h2>Department Performance</h2>
+                <div class="department-grid" id="departmentGrid"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="admin-footer">
+        <div class="container">
+            <p>&copy; 2025 CivicSahayak Administration Portal</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

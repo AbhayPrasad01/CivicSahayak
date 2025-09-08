@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact CivicSahayak - Get in touch with us for any queries or support">
+    <title>Contact Us - CivicSahayak</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+</head>
+<body>
+    <!-- Navigation will be included via JavaScript -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>We're here to help and answer any questions you might have</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Information -->
+                <section class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p>Have questions about CivicSahayak? We're here to help!</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <h3>Email Us</h3>
+                            <p>support@civicsetu.com</p>
+                            <p>info@civicsetu.com</p>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <h3>Call Us</h3>
+                            <p>+91 XXX XXX XXXX</p>
+                            <p>Mon - Fri, 9:00 - 18:00</p>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>Visit Us</h3>
+                            <p>123 Tech Park</p>
+                            <p>Bangalore, Karnataka</p>
+                        </div>
+                    </div>
+
+                    <div class="social-connect">
+                        <h3>Connect With Us</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon" title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-icon" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact Form -->
+                <section class="contact-form-section">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2>Send Us a Message</h2>
+                            <form id="contactForm" class="contact-form">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">Your Name</label>
+                                    <input type="text" id="name" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" id="email" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <select id="subject" class="form-control" required>
+                                        <option value="">Select a subject</option>
+                                        <option value="general">General Inquiry</option>
+                                        <option value="support">Technical Support</option>
+                                        <option value="feedback">Feedback</option>
+                                        <option value="partnership">Partnership</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea id="message" class="form-control" rows="5" required></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" required>
+                                        <span>I agree to the privacy policy and terms of service</span>
+                                    </label>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary w-100">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>How do I report an issue?</h3>
+                        <p>Click on the "Report Issue" button in the navigation bar, fill out the form with details about the civic issue, and submit it along with any relevant photos or location information.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How can I track my reported issues?</h3>
+                        <p>Log into your account and visit the "My Reports" section to see all your submitted reports and their current status.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What happens after I submit a report?</h3>
+                        <p>Your report is reviewed and assigned to the relevant municipal department. You'll receive notifications as your report progresses through different stages.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Can I update or add information to my report?</h3>
+                        <p>Yes, you can add comments or additional photos to your existing reports through the "My Reports" section.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer will be included via JavaScript -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Success Message Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Message Sent!</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="success-message">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Thank you for contacting us. We'll get back to you soon!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/nav.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>
