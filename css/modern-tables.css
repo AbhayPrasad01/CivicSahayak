@@ -1,0 +1,131 @@
+/* Modern Table Styles */
+.table-container {
+    overflow-x: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    background: white;
+    margin: var(--space-lg) 0;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+    font-size: 0.95rem;
+}
+
+.table th {
+    background: var(--neutral-50);
+    padding: var(--space-md) var(--space-lg);
+    text-align: left;
+    font-weight: 600;
+    color: var(--neutral-700);
+    border-bottom: 1px solid var(--neutral-200);
+}
+
+.table td {
+    padding: var(--space-md) var(--space-lg);
+    border-bottom: 1px solid var(--neutral-200);
+    color: var(--neutral-800);
+}
+
+.table tbody tr {
+    transition: background-color var(--transition-normal);
+}
+
+.table tbody tr:hover {
+    background-color: var(--neutral-50);
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Status Badges */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-xxs) var(--space-sm);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.badge-success {
+    background: var(--secondary-light);
+    color: var(--secondary-dark);
+}
+
+.badge-warning {
+    background: #fff7ed;
+    color: #c2410c;
+}
+
+.badge-error {
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+.badge-info {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+}
+
+/* Table Actions */
+.table-actions {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.action-btn {
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-md);
+    background: transparent;
+    border: none;
+    color: var(--neutral-600);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.action-btn:hover {
+    background: var(--neutral-100);
+    color: var(--neutral-900);
+}
+
+/* Responsive Tables */
+@media (max-width: 768px) {
+    .table-container {
+        border-radius: 0;
+        box-shadow: none;
+        border: 1px solid var(--neutral-200);
+    }
+    
+    .table th {
+        display: none;
+    }
+    
+    .table td {
+        display: grid;
+        grid-template-columns: 15ch auto;
+        gap: var(--space-sm);
+        padding: var(--space-sm) var(--space-md);
+        border: none;
+    }
+    
+    .table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--neutral-700);
+    }
+    
+    .table tr {
+        display: block;
+        margin-bottom: var(--space-md);
+        border-bottom: 1px solid var(--neutral-200);
+    }
+    
+    .table tr:last-child {
+        margin-bottom: 0;
+        border-bottom: none;
+    }
+}

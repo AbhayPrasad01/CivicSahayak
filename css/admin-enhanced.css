@@ -1,0 +1,182 @@
+/* Enhanced Admin Stats Styles */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.stat-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    border: 1px solid var(--surface-medium);
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Total Reports Card */
+.stat-card.total-reports {
+    background: linear-gradient(135deg, rgba(103, 192, 144, 0.1) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.stat-card.total-reports::before {
+    background: var(--gradient-primary);
+}
+
+.stat-card.total-reports .stat-icon {
+    background: linear-gradient(135deg, #37d782 0%, #4CAF50 100%);
+}
+
+/* Pending Reports Card */
+.stat-card.pending {
+    background: linear-gradient(135deg, rgba(255, 152, 0, 0.1) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.stat-card.pending::before {
+    background: linear-gradient(135deg, #FF9800 0%, #FF5722 100%);
+}
+
+.stat-card.pending .stat-icon {
+    background: linear-gradient(135deg, #FF9800 0%, #FF5722 100%);
+}
+
+/* In Progress Card */
+.stat-card.in-progress {
+    background: linear-gradient(135deg, rgba(33, 150, 243, 0.1) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.stat-card.in-progress::before {
+    background: linear-gradient(135deg, #128ff5 0%, #1976D2 100%);
+}
+
+.stat-card.in-progress .stat-icon {
+    background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+}
+
+/* Resolved Card */
+.stat-card.resolved {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.stat-card.resolved::before {
+    background: linear-gradient(135deg, #23a728 0%, #388E3C 100%);
+}
+
+.stat-card.resolved .stat-icon {
+    background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
+}
+
+/* Card Content Styling */
+.stat-card h3 {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.stat-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.stat-icon i {
+    color: white;
+    font-size: 1.25rem;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-trend {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.stat-trend.positive {
+    color: var(--success-color);
+}
+
+.stat-trend.negative {
+    color: var(--danger-color);
+}
+
+/* Hover Effects */
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.stat-card:hover .stat-icon {
+    transform: scale(1.1);
+}
+
+/* Animation */
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stat-value {
+    animation: countUp 1s ease-out;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        padding: 1.25rem;
+    }
+
+    .stat-value {
+        font-size: 1.75rem;
+    }
+}

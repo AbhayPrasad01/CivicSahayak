@@ -1,0 +1,306 @@
+/* Map and Location Styles */
+.map-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--surface-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    position: relative;
+}
+
+.map-container {
+    height: 400px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 2px solid var(--surface-medium);
+    transition: var(--transition-smooth);
+    margin: 1rem 0;
+}
+
+.map-container:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.location-controls {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.location-button {
+    display: flex;
+    align-items: center;
+    padding: 0.875rem 1.5rem;
+    border-radius: var(--radius-md);
+    background: white;
+    border: 2px solid var(--surface-medium);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.location-button:hover {
+    background: var(--surface-medium);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.location-button i {
+    margin-right: 0.75rem;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+/* Media Upload Section */
+.media-upload-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--surface-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 1rem 0;
+}
+
+.media-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    border: 2px dashed var(--primary-color);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.media-card:hover {
+    background: var(--surface-medium);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.media-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.media-card span {
+    display: block;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.media-preview {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--surface-medium);
+}
+
+/* Voice Note Section */
+.voice-note-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--surface-medium);
+    margin: 1rem 0;
+}
+
+.voice-record-button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.voice-record-button:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-md);
+}
+
+.voice-record-button i {
+    font-size: 1.5rem;
+}
+
+.voice-waveform {
+    flex: 1;
+    height: 40px;
+    background: var(--surface-light);
+    border-radius: var(--radius-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Report Cards */
+.reports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.report-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-smooth);
+    border: 1px solid var(--surface-medium);
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.report-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.report-header {
+    padding: 1.5rem;
+    background: var(--gradient-secondary);
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.report-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.report-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.report-meta i {
+    color: var(--primary-color);
+}
+
+.report-body {
+    padding: 1.5rem;
+}
+
+.report-content {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.report-media {
+    margin: 1rem 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.report-footer {
+    padding: 1rem 1.5rem;
+    background: var(--surface-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--surface-medium);
+}
+
+.report-status {
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.status-pending {
+    background: var(--warning-color);
+    color: white;
+}
+
+.status-resolved {
+    background: var(--success-color);
+    color: white;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .media-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .location-controls {
+        flex-direction: column;
+    }
+    
+    .map-container {
+        height: 300px;
+    }
+    
+    .report-card {
+        margin: 1rem 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .media-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .voice-note-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .voice-record-button {
+        align-self: center;
+    }
+    
+    .report-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}

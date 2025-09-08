@@ -1,0 +1,46 @@
+/* Modal Header Styles */
+.modal-header {
+    background: var(--gradient-primary);
+    padding: 2rem 1.5rem;
+    color: white;
+    position: relative;
+    text-align: center;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    background: linear-gradient(120deg, #ffffff 0%, #f0f0f0 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal Content Styles */
+.modal-content {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    background: rgb(255, 255, 255);
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

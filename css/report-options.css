@@ -1,0 +1,367 @@
+/* Report Options and Urgency Levels Styles */
+.report-options-section,
+.urgency-level-section {
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: var(--surface-color, #ffffff);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.options-grid,
+.urgency-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.option-button,
+.urgency-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    border: 2px solid var(--border-color, #e0e0e0);
+    border-radius: 8px;
+    background-color: var(--surface-color, #ffffff);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option-button:hover,
+.urgency-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.option-button.selected,
+.urgency-button.selected {
+    border-color: var(--primary-color, #1E93AB);
+    background-color: var(--primary-light, #e3f2fd);
+}
+
+.option-button i {
+    font-size: 24px;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Specific colors for each option button */
+.option-button[data-action="report-issue"] i {
+    color: #F44336; /* Red color */
+}
+
+.option-button[data-action="suggest-improvement"] i {
+    color: #FFC107; /* Yellow color */
+}
+
+.option-button[data-action="give-feedback"] i {
+    color: #2196F3; /* Blue color */
+}
+
+/* Selected state colors */
+.option-button[data-action="report-issue"].selected {
+    border-color: #F44336;
+    background-color: #FFEBEE;
+}
+
+.option-button[data-action="suggest-improvement"].selected {
+    border-color: #FFC107;
+    background-color: #FFF8E1;
+}
+
+.option-button[data-action="give-feedback"].selected {
+    border-color: #2196F3;
+    background-color: #E3F2FD;
+}
+
+/* Hover effects */
+.option-button[data-action="report-issue"]:hover {
+    border-color: #F44336;
+}
+
+.option-button[data-action="suggest-improvement"]:hover {
+    border-color: #FFC107;
+}
+
+.option-button[data-action="give-feedback"]:hover {
+    border-color: #2196F3;
+}
+
+.urgency-button i {
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: var(--primary-color, #1E93AB);
+}
+
+.urgency-button.low { border-color: #4CAF50; }
+.urgency-button.medium { border-color: #FFC107; }
+.urgency-button.high { border-color: #F44336; }
+
+.urgency-button.low.selected { background-color: #E8F5E9; }
+.urgency-button.medium.selected { background-color: #FFF8E1; }
+.urgency-button.high.selected { background-color: #FFEBEE; }
+
+.urgency-button.low i { color: #4CAF50; }
+.urgency-button.medium i { color: #FFC107; }
+.urgency-button.high i { color: #F44336; }
+
+/* Issue Categories Section */
+.issue-categories-section {
+    display: none;
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: var(--surface-color, #ffffff);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.issue-categories-section.visible {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.category-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid var(--border-color, #e0e0e0);
+    border-radius: 8px;
+    background-color: var(--surface-color, #ffffff);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category-button.selected {
+    border-color: var(--primary-color, #1E93AB);
+    background-color: var(--primary-light, #e3f2fd);
+}
+
+.category-button i {
+    font-size: 28px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+/* Specific colors for each category icon */
+.category-button[data-category="roads"] i {
+    color: #FF5722; /* Deep Orange */
+    text-shadow: 0 2px 4px rgba(255, 87, 34, 0.2);
+}
+
+.category-button[data-category="streetlights"] i {
+    color: #FFC107; /* Amber */
+    text-shadow: 0 2px 4px rgba(255, 193, 7, 0.2);
+}
+
+.category-button[data-category="garbage"] i {
+    color: #8BC34A; /* Light Green */
+    text-shadow: 0 2px 4px rgba(139, 195, 74, 0.2);
+}
+
+.category-button[data-category="electricity"] i {
+    color: #673AB7; /* Deep Purple */
+    text-shadow: 0 2px 4px rgba(103, 58, 183, 0.2);
+}
+
+.category-button[data-category="water"] i {
+    color: #03A9F4; /* Light Blue */
+    text-shadow: 0 2px 4px rgba(3, 169, 244, 0.2);
+}
+
+/* Selected states with matching backgrounds */
+.category-button[data-category="roads"].selected {
+    border-color: #FF5722;
+    background-color: rgba(255, 87, 34, 0.1);
+}
+
+.category-button[data-category="streetlights"].selected {
+    border-color: #FFC107;
+    background-color: rgba(255, 193, 7, 0.1);
+}
+
+.category-button[data-category="garbage"].selected {
+    border-color: #8BC34A;
+    background-color: rgba(139, 195, 74, 0.1);
+}
+
+.category-button[data-category="electricity"].selected {
+    border-color: #673AB7;
+    background-color: rgba(103, 58, 183, 0.1);
+}
+
+.category-button[data-category="water"].selected {
+    border-color: #03A9F4;
+    background-color: rgba(3, 169, 244, 0.1);
+}
+
+/* Hover effects */
+.category-button[data-category="roads"]:hover {
+    border-color: #FF5722;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(255, 87, 34, 0.2);
+}
+
+.category-button[data-category="streetlights"]:hover {
+    border-color: #FFC107;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(255, 193, 7, 0.2);
+}
+
+.category-button[data-category="garbage"]:hover {
+    border-color: #8BC34A;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(139, 195, 74, 0.2);
+}
+
+.category-button[data-category="electricity"]:hover {
+    border-color: #673AB7;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(103, 58, 183, 0.2);
+}
+
+.category-button[data-category="water"]:hover {
+    border-color: #03A9F4;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(3, 169, 244, 0.2);
+}
+
+.category-button span {
+    text-align: center;
+    font-weight: 500;
+    color: #37474F; /* Dark blue grey for better readability */
+}
+
+@media screen and (max-width: 768px) {
+    .options-grid,
+    .urgency-grid,
+    .categories-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 10px;
+    }
+
+    .option-button,
+    .urgency-button,
+    .category-button {
+        padding: 15px;
+    }
+
+    .option-button i,
+    .urgency-button i,
+    .category-button i {
+        font-size: 24px;
+    }
+}
+
+/* Suggestion and Feedback Sections */
+.suggestion-section,
+.feedback-section {
+    display: none;
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: var(--surface-color, #ffffff);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease;
+}
+
+.suggestion-section.visible,
+.feedback-section.visible {
+    display: block;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-primary, #333);
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--border-color, #e0e0e0);
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    background-color: var(--surface-color, #ffffff);
+}
+
+.input-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color, #1E93AB);
+}
+
+.suggestion-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.tag-button {
+    padding: 8px 16px;
+    border: 2px solid var(--border-color, #e0e0e0);
+    border-radius: 20px;
+    background-color: var(--surface-color, #ffffff);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.tag-button:hover {
+    background-color: var(--primary-light, #e3f2fd);
+    border-color: var(--primary-color, #1E93AB);
+}
+
+.tag-button.selected {
+    background-color: var(--primary-color, #1E93AB);
+    border-color: var(--primary-color, #1E93AB);
+    color: white;
+}
+
+@media screen and (max-width: 480px) {
+    .categories-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .category-button {
+        padding: 12px;
+    }
+
+    .input-group input,
+    .input-group textarea {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .tag-button {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+}

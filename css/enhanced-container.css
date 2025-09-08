@@ -1,0 +1,310 @@
+/* Enhanced Container Styles */
+.container {
+    position: relative;
+    padding: 2rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Premium Feature Cards */
+.feature-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.feature-card {
+    background: var(--surface-light);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    border: 1px solid var(--surface-medium);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transition: var(--transition-smooth);
+    transform-origin: left;
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: var(--transition-smooth);
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1);
+    background: var(--gradient-primary);
+}
+
+.feature-icon i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    transition: var(--transition-smooth);
+}
+
+.feature-card:hover .feature-icon i {
+    color: white;
+}
+
+.feature-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.feature-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Enhanced Live Issue Map Section */
+.live-map-section {
+    background: var(--surface-light);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin: 3rem 0;
+    box-shadow: var(--shadow-md);
+    position: relative;
+}
+
+.live-map-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.map-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.map-title i {
+    color: var(--primary-color);
+}
+
+.map-filters {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.map-filter {
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-md);
+    background: white;
+    border: 2px solid var(--surface-medium);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.map-filter:hover {
+    border-color: var(--primary-color);
+    background: var(--surface-medium);
+}
+
+.map-filter.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.map-filter.active i {
+    color: white;
+}
+
+.map-filter i {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.live-map-container {
+    height: 500px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 2px solid var(--surface-medium);
+    transition: var(--transition-smooth);
+}
+
+.live-map-container:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-lg);
+}
+
+.map-legend {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: white;
+    border-radius: var(--radius-md);
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.legend-dot.resolved { background: var(--success-color); }
+.legend-dot.pending { background: var(--warning-color); }
+.legend-dot.urgent { background: var(--danger-color); }
+
+/* Live Updates Panel */
+.live-updates {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    width: 300px;
+    background: white;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    z-index: 1000;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.live-updates-header {
+    padding: 1rem;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.live-updates-list {
+    padding: 1rem;
+}
+
+.update-item {
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--surface-medium);
+    display: flex;
+    gap: 1rem;
+    align-items: start;
+}
+
+.update-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--surface-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.update-icon i {
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+.update-content {
+    flex: 1;
+}
+
+.update-title {
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.update-time {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .feature-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .live-map-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .map-filters {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .live-map-container {
+        height: 400px;
+    }
+
+    .live-updates {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 100%;
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .map-filter {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .live-map-container {
+        height: 300px;
+    }
+}
